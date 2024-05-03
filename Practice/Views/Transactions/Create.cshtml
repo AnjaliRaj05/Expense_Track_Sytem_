@@ -1,0 +1,71 @@
+﻿@model Practice.Models.Transaction
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form-container {
+        width: 45%;
+    }
+
+    .image-container {
+        width: 45%;
+        text-align: center;
+    }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+</style>
+
+<h1>Add Transaction</h1>
+
+<hr />
+<div class="row">
+    <div class="form-container">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label"></label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <div>
+            <a class = "btn btn-danger" asp-action="Index"> Previous </a>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="https://static.vecteezy.com/system/resources/previews/000/181/605/original/transaction-with-peso-free-vector.jpg" alt="Transaction Image">
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

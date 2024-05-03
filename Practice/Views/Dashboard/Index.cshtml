@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Practice.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Transaction Details</h4>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Category
+            </th>
+            <th>
+                Amount
+            </th>
+           
+            <th>
+                Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a> 
+                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.TransactionId">Details</a> 
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

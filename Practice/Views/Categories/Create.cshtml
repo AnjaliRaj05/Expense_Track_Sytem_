@@ -1,0 +1,62 @@
+﻿@model Practice.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form-container {
+        width: 45%;
+    }
+
+    .image-container {
+        width: 45%;
+        text-align: center;
+    }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+</style>
+
+<h1>Add New Category</h1>
+
+<hr />
+<div class="row">
+    <div class="form-container" >
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <div>
+            <a class="btn btn-outline-danger" asp-action="Index">Previous</a>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="https://static.vecteezy.com/system/resources/previews/000/181/605/original/transaction-with-peso-free-vector.jpg" alt="Category Image">
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
