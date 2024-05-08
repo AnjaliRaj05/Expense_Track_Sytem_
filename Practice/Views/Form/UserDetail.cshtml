@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Practice.Models.LoginViewModel>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <h2>User Details</h2>
+    @foreach (var loginViewModel in Model)
+    {
+        <p>Username: @loginViewModel.Username</p>
+        <p>Password: @loginViewModel.Password</p>
+    }
+</body>
+</html>

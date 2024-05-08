@@ -14,6 +14,9 @@ namespace Practice.Data
         public DbSet<Practice.Models.Person> Person { get; set; } = default!;
         public DbSet<Practice.Models.Category> Category { get; set; } = default!;
         public DbSet<Practice.Models.Transaction> Transaction { get; set; } = default!;
+        public DbSet<Practice.Models.StudentAccount> StudentAccount { get; set; } = default!;
+
+       
         
 
     }
